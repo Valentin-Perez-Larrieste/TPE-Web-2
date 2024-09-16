@@ -5,7 +5,7 @@ Biblioteca Central de BS AS
 - Juan Ignacio Muñiz Iradi
 - Valentin Perez Larrieste  
 
-## Descripcion:
+## Descripcion
 
 Hicimos un sistema para controlar el stock de los libros y clientes de una libreria. A su vez, para controlar quién y cuándo se toma pedido un libro
 
