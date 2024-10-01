@@ -47,7 +47,7 @@ INSERT INTO `libro` (`id`, `nombre`, `autor`, `editorial`, `genero`, `stock`) VA
 (4, 'Drácula', 'Bram Stoker', 'Editorial Anto', 'Terror, Novela', 5),
 (5, 'Cementerio de animales', 'Stephen King', 'Alfaguara', 'Terror', 3),
 (6, 'Soy leyenda', 'Richard Matheson', 'Minotauro', 'Ciencia ficcion,Terror', 2),
-(7, 'El misterio de Salem\'s Lot', 'Stephen King', 'DEBOLS!LLO', 'Novela, Terror', 1),
+(7, 'El misterio de Salems Lot', 'Stephen King', 'DEBOLS!LLO', 'Novela, Terror', 1),
 (8, 'La conjura de los necios', 'John Kennedy Toole', 'Editorial Anagrama', ' Novela, Humor, Comedia', 0),
 (9, '50 sombras de Luisi', 'Ángel Sanchidrián', 'Minotauro', 'Humor,Comedia', 3),
 (10, 'El proyecto esposa', 'Graeme Simsion', 'SALAMANDRA', 'Novela rosa, Romance', 10),
