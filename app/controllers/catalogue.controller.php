@@ -13,7 +13,14 @@ class CatalogueController {
 
     public function showCatalogue() {
         $catalogue = $this->model->getCatalogue();
+        $genres = $this->model->getGenres();
 
-        return $this->view->showCatalogue($catalogue);
+        return $this->view->showCatalogue($catalogue, $genres);
+    }
+
+    public function showBook($id) {
+        $book = $this->model->getBook($id);
+
+        return $this->view->showBook($book);
     }
 }

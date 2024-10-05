@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 04, 2024 at 11:44 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 05-10-2024 a las 18:38:44
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tpe-web-2`
+-- Base de datos: `tpe-web-2`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `géneros`
+-- Estructura de tabla para la tabla `géneros`
 --
 
 CREATE TABLE `géneros` (
@@ -33,11 +33,10 @@ CREATE TABLE `géneros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `géneros`
+-- Volcado de datos para la tabla `géneros`
 --
 
 INSERT INTO `géneros` (`id`, `nombre`) VALUES
-(3, 'papa'),
 (4, 'Ciencia ficción'),
 (5, 'Comedia'),
 (6, 'Ficción'),
@@ -55,185 +54,25 @@ INSERT INTO `géneros` (`id`, `nombre`) VALUES
 (18, 'Terror'),
 (19, 'Novela Psicológica');
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `libro`
---
-
-CREATE TABLE `libro` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(60) NOT NULL,
-  `autor` varchar(60) NOT NULL,
-  `editorial` varchar(60) DEFAULT NULL,
-  `genero` varchar(60) NOT NULL,
-  `ID_genero` int(11) NOT NULL,
-  `ID_genero2` int(11) DEFAULT NULL,
-  `ID_genero3` int(11) DEFAULT NULL,
-  `stock` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `libro`
---
-
-INSERT INTO `libro` (`id`, `nombre`, `autor`, `editorial`, `genero`, `ID_genero`, `ID_genero2`, `ID_genero3`, `stock`) VALUES
-(1, 'Don Quijote de la Mancha', 'Miguel de Cervantes', 'Herrero Hermanos Saturnino Calleja', 'Parodia,Humor,Comedia', 14, 9, 5, 15),
-(2, 'La Regenta.', 'Leopoldo Arias Clarín', 'Alba Editorial', 'Ficcion', 6, NULL, NULL, 10),
-(3, 'La cartuja de Parma', 'Stendhal', NULL, 'Ficcion', 6, NULL, NULL, 5),
-(4, 'Drácula', 'Bram Stoker', 'Editorial Anto', 'Terror, Novela', 18, 11, NULL, 5),
-(5, 'Cementerio de animales', 'Stephen King', 'Alfaguara', 'Terror', 18, NULL, NULL, 3),
-(6, 'Soy leyenda', 'Richard Matheson', 'Minotauro', 'Ciencia ficcion,Terror', 4, 18, NULL, 2),
-(7, 'El misterio de Salems Lot', 'Stephen King', 'DEBOLS!LLO', 'Novela, Terror', 11, 18, NULL, 1),
-(8, 'La conjura de los necios', 'John Kennedy Toole', 'Editorial Anagrama', ' Novela, Humor, Comedia', 11, 9, 5, 0),
-(9, '50 sombras de Luisi', 'Ángel Sanchidrián', 'Minotauro', 'Humor,Comedia', 9, 5, NULL, 3),
-(10, 'El proyecto esposa', 'Graeme Simsion', 'SALAMANDRA', 'Novela rosa, Romance', 13, 16, NULL, 10),
-(11, 'Días de perros', 'Gilles Legardinier', 'Editorial Planeta', ' Ficcion, Humor', 6, 9, NULL, 3),
-(12, 'Guía del autoestopista galáctico', 'Robbie Stamp, Douglas Adams', 'Editorial Anagrama', ' Ciencia ficcion, Novela, Humor', 4, 11, 9, 2),
-(13, 'Esnob', 'Elísabet Benavent', 'SUMA', 'Novela rosa, Ficcion', 13, 6, NULL, 15),
-(14, 'Forastera', 'Diana Gabaldon', 'SALAMANDRA BOLSILLO', 'Novela,Romance', 11, 16, NULL, 2),
-(15, 'La Casa Neville 2. No quieras nada vil', 'Florencia Bonelli', NULL, 'Novela rosa, Ficcion', 13, 6, NULL, 2),
-(16, 'Dune', 'Frank Herbert', 'LA FACTORÍA DE IDEAS', 'Novela, Ciencia ficcion', 11, 4, NULL, 3),
-(17, 'Fahrenheit 451', 'Ray Bradbury', 'Minotauro', 'Novela, Ciencia ficcion', 11, 4, NULL, 2),
-(18, 'El marciano', 'Andy Weir', 'B de Books (Ediciones B)', ' Ciencia ficcion, Novela', 4, 11, NULL, 1),
-(19, 'Un mundo feliz', 'Aldous Huxley', NULL, 'Novela, Ciencia ficcion', 11, 4, NULL, 2),
-(20, 'El eternauta', 'H.G.Oesterheld, Solano López', 'Planeta Cómic Argentina', 'Historieta, Novela grafica', 8, 12, NULL, 5),
-(21, 'Asesinato en el Orient Express', 'Agatha Christie', 'Grupo Planeta - Argentina', 'Novela, Ficcion detectivesca, Misterio', 11, 7, 10, 2),
-(23, 'Holly (Edición en español)', 'Stephen King', 'PLAZA & JANÉS', 'Terror, Misterio, Suspenso', 18, 10, 17, 2),
-(24, 'El Psicoanalista', 'John Katzenbach', 'Penguin Random House Grupo Editorial España', 'Suspenso, Novela psicologica', 17, 19, NULL, 0),
-(25, 'El visitante', 'Stephen King', 'DEBOLS!LLO', 'Novela, Terror', 11, 18, NULL, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `solicitud`
---
-
-CREATE TABLE `solicitud` (
-  `id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `estado` varchar(20) NOT NULL,
-  `ID_libro` int(11) NOT NULL,
-  `ID_usuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `solicitud`
---
-
-INSERT INTO `solicitud` (`id`, `fecha`, `estado`, `ID_libro`, `ID_usuario`) VALUES
-(1, '2024-09-09', 'aprobado', 1, 1),
-(2, '2022-09-12', 'aprobado', 2, 2),
-(3, '2024-09-18', 'desaprobado', 3, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usuario`
---
-
-CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(60) NOT NULL,
-  `apellido` varchar(60) NOT NULL,
-  `dni` int(11) NOT NULL,
-  `telefono` int(11) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `estado` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `usuario`
---
-
-INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`) VALUES
-(1, 'Juan', 'Muñiz', 44764321, 596532, 'uni.juan@com', 'no deudor'),
-(2, 'Valen', 'Perez', 32546315, 423567, 'valenqueteimporta@com', 'deudor'),
-(3, 'pepe', 'pepon', 43865743, 543212, 'pepe.pepom@.com', 'no deudor');
-
---
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `géneros`
+-- Indices de la tabla `géneros`
 --
 ALTER TABLE `géneros`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `libro`
---
-ALTER TABLE `libro`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Genero` (`ID_genero`),
-  ADD KEY `ID_genero2` (`ID_genero2`),
-  ADD KEY `ID_genero3` (`ID_genero3`);
-
---
--- Indexes for table `solicitud`
---
-ALTER TABLE `solicitud`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_libro` (`ID_libro`),
-  ADD KEY `ID_usuario` (`ID_usuario`);
-
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `dni` (`dni`),
-  ADD UNIQUE KEY `telefono` (`telefono`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `géneros`
+-- AUTO_INCREMENT de la tabla `géneros`
 --
 ALTER TABLE `géneros`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT for table `libro`
---
-ALTER TABLE `libro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
--- AUTO_INCREMENT for table `solicitud`
---
-ALTER TABLE `solicitud`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `libro`
---
-ALTER TABLE `libro`
-  ADD CONSTRAINT `libro_ibfk_1` FOREIGN KEY (`ID_Genero`) REFERENCES `géneros` (`id`),
-  ADD CONSTRAINT `libro_ibfk_2` FOREIGN KEY (`ID_genero`) REFERENCES `géneros` (`id`),
-  ADD CONSTRAINT `libro_ibfk_3` FOREIGN KEY (`ID_genero2`) REFERENCES `géneros` (`id`),
-  ADD CONSTRAINT `libro_ibfk_4` FOREIGN KEY (`ID_genero3`) REFERENCES `géneros` (`id`);
-
---
--- Constraints for table `solicitud`
---
-ALTER TABLE `solicitud`
-  ADD CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`ID_libro`) REFERENCES `libro` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `solicitud_ibfk_2` FOREIGN KEY (`ID_usuario`) REFERENCES `usuario` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,17 @@
+<?php require 'templates/layout/header.phtml' ?>
+
+<h2>Listado de Libros</h2>
+<ul>
+    <?php foreach($catalogue as $book): ?>
+        <li> <a href="book/<?php echo $book->id ?>"> <?php echo $book->nombre ?> </a> </li>
+    <?php endforeach ?>
+</ul>
+
+<h2>Listado de Géneros</h2>
+<ul>
+    <?php foreach($genres as $genre): ?>
+        <li> <?php echo $genre->nombre ?> </li>
+    <?php endforeach ?>
+</ul>
+
+<?php require 'templates/layout/footer.phtml' ?>
