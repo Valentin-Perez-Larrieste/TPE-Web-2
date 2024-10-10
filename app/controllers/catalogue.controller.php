@@ -23,4 +23,10 @@ class CatalogueController {
 
         return $this->view->showBook($book);
     }
+    public function showBookByGenres($ID_genero){
+        $books = $this->model->getBookByGenres($ID_genero);
+
+        return $this->view->showBooks($books);
+
+    }
 }

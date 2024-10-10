@@ -10,7 +10,7 @@
 <h2>Listado de Géneros</h2>
 <ul>
     <?php foreach($genres as $genre): ?>
-        <li> <?php echo $genre->nombre ?> </li>
+        <li> <a href="genre/<?php echo $genre->id ?>"> <?php echo $genre->nombre ?> </a> </li>
     <?php endforeach ?>
 </ul>
 

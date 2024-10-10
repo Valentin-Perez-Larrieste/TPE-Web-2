@@ -32,4 +32,13 @@ class CatalogueModel {
         
         return $book;
     }
+    public function getBookByGenres($ID_genero) {
+        $query = $this->db->prepare('SELECT * FROM libro WHERE ID_genero = :id OR ID_genero2 = :id OR ID_genero3 = :id');
+        $query->execute([':id'=>$ID_genero]);
+
+        $books = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $books;
+    }
+
 }

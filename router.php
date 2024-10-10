@@ -39,6 +39,10 @@ switch($params[0]) {
         $controller = new CatalogueController();
         $controller->showBook($params[1]);
         break;
+    case 'genre':
+        $controller = new CatalogueController();
+        $controller->showBookByGenres($params[1]);
+        break;
     default:
         echo "404 Page not found";
         break;

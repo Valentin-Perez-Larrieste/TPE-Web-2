@@ -10,4 +10,10 @@ class CatalogueView {
     public function showBook($book) {
         require 'templates/book.phtml';
     }
+
+    public function showBooks($books) {
+        require 'templates/books.phtml';
+    }
+
+
 }
