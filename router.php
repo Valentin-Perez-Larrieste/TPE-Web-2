@@ -14,6 +14,7 @@ Tabla de Ruteo
 
 home -> showHome();
 login -> COMPLETAR
+logout -> COMPLETAR
 register -> COMPLETAR
 catalogue -> catalogueController()->showCatalogue();
 book/ :ID -> catalogueController()->showBook($id);

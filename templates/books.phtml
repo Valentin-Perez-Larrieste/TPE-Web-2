@@ -1,12 +1,11 @@
 <?php require 'templates/layout/header.phtml' ?>
 
-<?php foreach ($books as $book): ?>
+<h2>Listado de Libros</h2>
+<ul>
+    <?php foreach($books as $book): ?>
+        <li> <a href="<?php echo BASE_URL . 'book/' . $book->id ?>"> <?php echo $book->nombre ?> </a> </li>
+    <?php endforeach ?>
+</ul>
 
-    <h1> <?php echo $book->nombre ?> </h1>
-    <ul>
-        <li> Autor: <?php echo $book->autor ?> </li>
-        <li> Editorial: <?php echo $book->editorial ?> </li>
-        <li> Géneros: <?php echo $book->genero ?> </li>
-    </ul>
-<?php endforeach; ?>
+
 <?php require 'templates/layout/footer.phtml' ?>
