@@ -139,16 +139,17 @@ CREATE TABLE `usuario` (
   `telefono` int(11) NOT NULL,
   `email` varchar(60) NOT NULL,
   `estado` varchar(20) NOT NULL
+  `contraseña` varchar(255) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`) VALUES
-(1, 'Juan', 'Muñiz', 44764321, 596532, 'uni.juan@com', 'no deudor'),
-(2, 'Valen', 'Perez', 32546315, 423567, 'valenqueteimporta@com', 'deudor'),
-(3, 'pepe', 'pepon', 43865743, 543212, 'pepe.pepom@.com', 'no deudor');
+INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`, `contraseña`) VALUES
+(1, 'Juan', 'Muñiz', 44764321, 596532, 'uni.juan@com', 'no deudor', '123123'),
+(2, 'Valen', 'Perez', 32546315, 423567, 'valenqueteimporta@com', 'deudor', '123123'),
+(3, 'pepe', 'pepon', 43865743, 543212, 'pepe.pepom@.com', 'no deudor','123123');
 
 --
 -- Índices para tablas volcadas
