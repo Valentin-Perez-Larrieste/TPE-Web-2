@@ -15,11 +15,7 @@ class LoginModel {
 
         $user = $query->fetch(PDO::FETCH_ASSOC);
         
-        // Verifica si el usuario existe y compara la contraseña
-        // if ($user && password_verify($contraseña, $user['contraseña'])) {
-        //     return $user; // Retorna el usuario si la contraseña es correcta
-        // }
-        if ($user && $contraseña === $user['contraseña']) {
+        if ($user && $contraseña === $user['password']) {
             return $user;
         
         }

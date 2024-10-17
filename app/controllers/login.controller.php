@@ -20,13 +20,13 @@ class LoginController {
         if (!isset($_POST['email']) || empty($_POST['email'])) {
             return $this->view->showError('Falta completar el email');
         }
-        if (!isset($_POST['password']) || empty($_POST['password'])) {
+        if (!isset($_POST['contraseña']) || empty($_POST['contraseña'])) {
             return $this->view->showError('Falta completar la contraseña');
         }
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $contraseña = $_POST['contraseña'];
         
-        $userFromDB = $this->model->getUser($email,$password);
+        $userFromDB = $this->model->getUser($email,$contraseña);
         if ($userFromDB == NULL) {
             return $this->view->showError('no existe el usuario');
         }    

@@ -32,7 +32,7 @@ class registerController {
         if (!isset($_POST['email']) || empty($_POST['email'])) {
             return $this->view->showError('Falta completar el nombre de usuario');
         }
-        if (!isset($_POST['password']) || empty($_POST['password'])) {
+        if (!isset($_POST['contraseña']) || empty($_POST['contraseña'])) {
             return $this->view->showError('Falta completar la contraseña');
         }
         $registro = [
@@ -41,7 +41,7 @@ class registerController {
             'dni' => $_POST['dni'],
             'telefono' => $_POST['telefono'],
             'email' => $_POST['email'],
-            'password' => $_POST['password'],
+            'contraseña' => $_POST['contraseña'],
             'estado' => 'no deudor',  
         ];
         
