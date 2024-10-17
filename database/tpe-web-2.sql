@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 18:11:18
+-- Tiempo de generación: 17-10-2024 a las 23:20:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -116,15 +116,6 @@ CREATE TABLE `solicitud` (
   `ID_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `solicitud`
---
-
-INSERT INTO `solicitud` (`id`, `fecha`, `estado`, `ID_libro`, `ID_usuario`) VALUES
-(1, '2024-09-09', 'aprobado', 1, 1),
-(2, '2022-09-12', 'aprobado', 2, 2),
-(3, '2024-09-18', 'desaprobado', 3, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -147,11 +138,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`, `password`) VALUES
-(1, 'Juan', 'Muñiz', 44764321, 596532, 'uni.juan@com', 'no deudor', '123123'),
-(2, 'Valen', 'Perez', 32546315, 423567, 'valenqueteimporta@com', 'deudor', NULL),
-(3, 'pepe', 'pepon', 43865743, 543212, 'pepe.pepom@.com', 'no deudor', NULL),
-(4, 'juan muñiz', 'fasfasf', 1234124, 124124515, 'lol_igna_022@outlook.com', 'no deudor', NULL),
-(6, 'juan ', 'fasfasf', 1231312, 12312312, 'asdasdasd@123.com', 'no deudor', NULL);
+(8, 'Valentin', 'Perez Larrieste', 47060233, 2147483647, 'papa@gmail.com', 'no deudor', '$2y$10$aoYD4.SYmJE.FDFlVJczvu4bXJHhUb5pCUK4mC1t61edFPGNUv2u.');
 
 --
 -- Índices para tablas volcadas
@@ -215,7 +202,7 @@ ALTER TABLE `solicitud`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
