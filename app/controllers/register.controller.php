@@ -1,5 +1,5 @@
 <?php
-require_once 'app/models/register.model.php';
+require_once 'app/models/user.model.php';
 require_once 'app/views/register.view.php';
 
 class registerController {
@@ -7,8 +7,8 @@ class registerController {
     private $view;
 
     public function __construct() {
-        $this->model = new registerModel();
-        $this->view = new registerView();
+        $this->model = new UserModel();
+        $this->view = new RegisterView();
     }
 
     public function showRegister() {
@@ -35,13 +35,16 @@ class registerController {
         if (!isset($_POST['contraseña']) || empty($_POST['contraseña'])) {
             return $this->view->showError('Falta completar la contraseña');
         }
+
+        $hash = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
+
         $registro = [
             'nombre' => $_POST['nombre'],
             'apellido' => $_POST['apellido'],
             'dni' => $_POST['dni'],
             'telefono' => $_POST['telefono'],
             'email' => $_POST['email'],
-            'contraseña' => $_POST['contraseña'],
+            'contraseña' => $hash,
             'estado' => 'no deudor',  
         ];
         

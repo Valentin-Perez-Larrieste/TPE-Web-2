@@ -1,7 +1,7 @@
 <?php
 require_once 'index.php';
 require_once 'app/controllers/catalogue.controller.php';
-require_once 'app/controllers/login.controller.php';
+require_once 'app/controllers/auth.controller.php';
 require_once 'app/controllers/register.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -15,11 +15,14 @@ if (!empty( $_GET['action'])) {
 Tabla de Ruteo
 
 home -> showHome();
-login -> showLogin();
-logout -> COMPLETAR
-register -> COMPLETAR
-catalogue -> catalogueController()->showCatalogue();
-book/ :ID -> catalogueController()->showBook($id);
+showLogin -> AuthController->showLogin();
+login -> AuthController->login();
+showRegisrer -> RegisterController->showRegister();
+register -> RegisterController->register();
+logout -> AuthController->logout();
+catalogue -> CatalogueController()->showCatalogue();
+book/ :ID -> CatalogueController()->showBook($id);
+genre/ :ID -> CatalogueController()->showBookByGenre($id);
 */
 
 $params = explode('/', $action);
@@ -29,11 +32,11 @@ switch($params[0]) {
         showHome();
         break;
     case 'showLogin':
-        $controller = new LoginController();
+        $controller = new AuthController();
         $controller->showLogin();
         break;
     case 'login':
-        $controller = new LoginController();
+        $controller = new AuthController();
         $controller->login();
         break;
     case 'showRegister':
@@ -44,6 +47,9 @@ switch($params[0]) {
         $controller = new registerController();
         $controller->register();
         break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
     case 'catalogue':
         $controller = new CatalogueController();
         $controller->showCatalogue();

@@ -12,18 +12,27 @@ class CatalogueController {
     }
 
     public function showCatalogue() {
-        $catalogue = $this->model->getCatalogue();
-        $genres = $this->model->getGenres();
+        session_start();
+        if(isset($_SESSION['ID_USER'])) {
+            $catalogue = $this->model->getCatalogue();
+            $genres = $this->model->getGenres();
 
-        return $this->view->showCatalogue($catalogue, $genres);
+            return $this->view->showCatalogue($catalogue, $genres);
+        } else {
+            header ('location: '. BASE_URL . 'showLogin');
+        }
     }
 
     public function showBook($id) {
+        session_start();
+
         $book = $this->model->getBook($id);
 
         return $this->view->showBook($book);
     }
     public function showBookByGenres($ID_genero){
+        session_start();
+
         $books = $this->model->getBookByGenres($ID_genero);
 
         return $this->view->showBooks($books);

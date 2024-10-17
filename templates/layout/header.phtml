@@ -20,14 +20,16 @@
                             <a class="nav-link" href="<?php echo BASE_URL . 'catalogue' ?>">Catálogo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL . 'showLogin' ?>">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo BASE_URL . 'showRegister' ?>">Register</a>
                         </li>
+                        <?php if(isset($_SESSION['ID_USER'])): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo BASE_URL . 'logout' ?>"> Cerrar cesión</a>
+                            </li>
+                        <?php endif ?>
                     </ul>
                 </div>
             </div>

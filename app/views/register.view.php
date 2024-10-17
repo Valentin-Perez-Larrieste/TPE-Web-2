@@ -1,5 +1,5 @@
 <?php
-class registerView {
+class RegisterView {
 
     public function showRegister() {
         require 'templates/register.phtml';
