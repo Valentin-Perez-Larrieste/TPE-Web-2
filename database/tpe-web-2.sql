@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2024 a las 21:27:09
+-- Tiempo de generación: 17-10-2024 a las 18:11:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -138,18 +138,20 @@ CREATE TABLE `usuario` (
   `dni` int(11) NOT NULL,
   `telefono` int(11) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `estado` varchar(20) NOT NULL
-  `contraseña` varchar(255) NOT NULL,
+  `estado` varchar(20) NOT NULL,
+  `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`, `contraseña`) VALUES
+INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`, `password`) VALUES
 (1, 'Juan', 'Muñiz', 44764321, 596532, 'uni.juan@com', 'no deudor', '123123'),
-(2, 'Valen', 'Perez', 32546315, 423567, 'valenqueteimporta@com', 'deudor', '123123'),
-(3, 'pepe', 'pepon', 43865743, 543212, 'pepe.pepom@.com', 'no deudor','123123');
+(2, 'Valen', 'Perez', 32546315, 423567, 'valenqueteimporta@com', 'deudor', NULL),
+(3, 'pepe', 'pepon', 43865743, 543212, 'pepe.pepom@.com', 'no deudor', NULL),
+(4, 'juan muñiz', 'fasfasf', 1234124, 124124515, 'lol_igna_022@outlook.com', 'no deudor', NULL),
+(6, 'juan ', 'fasfasf', 1231312, 12312312, 'asdasdasd@123.com', 'no deudor', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -213,7 +215,7 @@ ALTER TABLE `solicitud`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
