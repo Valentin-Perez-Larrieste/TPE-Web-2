@@ -1,11 +1,7 @@
 <?php
 class RegisterView {
 
-    public function showRegister() {
+    public function showRegister($error = '') {
         require 'templates/register.phtml';
-    }
-
-    public function showError($error) {
-        require 'templates/error.phtml';
     }
 }

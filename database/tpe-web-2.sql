@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 23:20:05
+-- Tiempo de generación: 18-10-2024 a las 17:25:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -130,15 +130,17 @@ CREATE TABLE `usuario` (
   `telefono` int(11) NOT NULL,
   `email` varchar(60) NOT NULL,
   `estado` varchar(20) NOT NULL,
-  `password` varchar(255) DEFAULT NULL
+  `password` varchar(255) DEFAULT NULL,
+  `admin` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`, `password`) VALUES
-(8, 'Valentin', 'Perez Larrieste', 47060233, 2147483647, 'papa@gmail.com', 'no deudor', '$2y$10$aoYD4.SYmJE.FDFlVJczvu4bXJHhUb5pCUK4mC1t61edFPGNUv2u.');
+INSERT INTO `usuario` (`id`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `estado`, `password`, `admin`) VALUES
+(8, 'Valentin', 'Perez Larrieste', 47060233, 2147483647, 'papa@gmail.com', 'no deudor', '$2y$10$aoYD4.SYmJE.FDFlVJczvu4bXJHhUb5pCUK4mC1t61edFPGNUv2u.', ''),
+(11, 'Web', 'Web', 11111111, 1111111111, 'webadmin@gmail.com', 'no deudor', '$2y$10$xjqC0mcJZCFF1FdNzv1DuuUZfn9dqo7ZFft84FE4elUdD58HmHOvS', 'si');
 
 --
 -- Índices para tablas volcadas
@@ -202,7 +204,7 @@ ALTER TABLE `solicitud`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas

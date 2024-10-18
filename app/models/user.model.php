@@ -34,4 +34,13 @@ class UserModel {
         // Ejecutar la consulta
         return $query->execute($params);
     }
+
+    public function isAdmin($userId) {
+        $query = $this->db->prepare("SELECT admin FROM usuario WHERE id = ?");
+        $query->execute([$userId]);
+
+        $resultado = $query->fetch(PDO::FETCH_ASSOC);
+
+        return isset($resultado['admin']) && $resultado['admin'] === 'si';  
+    }
 }

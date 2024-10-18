@@ -18,22 +18,22 @@ class registerController {
     
     public function register() {
         if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
-            return $this->view->showError('Falta completar el nombre de usuario');
+            return $this->view->showRegister('Falta completar el nombre de usuario');
         }
         if (!isset($_POST['apellido']) || empty($_POST['apellido'])) {
-            return $this->view->showError('Falta completar el apellido');
+            return $this->view->showRegister('Falta completar el apellido');
         }
         if (!isset($_POST['dni']) || empty($_POST['dni'])) {
-            return $this->view->showError('Falta completar el DNI');
+            return $this->view->showRegister('Falta completar el DNI');
         }
         if (!isset($_POST['telefono']) || empty($_POST['telefono'])) {
-            return $this->view->showError('Falta completar el numero de telefono');
+            return $this->view->showRegister('Falta completar el numero de telefono');
         }
         if (!isset($_POST['email']) || empty($_POST['email'])) {
-            return $this->view->showError('Falta completar el nombre de usuario');
+            return $this->view->showRegister('Falta completar el nombre de usuario');
         }
         if (!isset($_POST['contraseña']) || empty($_POST['contraseña'])) {
-            return $this->view->showError('Falta completar la contraseña');
+            return $this->view->showRegister('Falta completar la contraseña');
         }
 
         $hash = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
@@ -50,7 +50,7 @@ class registerController {
         
         
         if (!$this->model->registerUser($registro)) {
-            return $this->view->showError('el usuario no se pudo crear');
+            return $this->view->showRegister('el usuario no se pudo crear');
         }    
         header ('location: '. BASE_URL . 'showLogin');
 
