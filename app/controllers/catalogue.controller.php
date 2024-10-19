@@ -54,12 +54,13 @@ class CatalogueController {
         $nombre = $_POST['nombre'];
         $autor = $_POST['autor'];
         $editorial = $_POST['editorial'] ?? null;
+        $genero = $_POST['genero'];
         $ID_genero = $_POST['ID_genero'];
         $ID_genero2 = !empty($_POST['ID_genero2']) ? $_POST['ID_genero2'] : null;
         $ID_genero3 = !empty($_POST['ID_genero3']) ? $_POST['ID_genero3'] : null;
         $stock = $_POST['stock'];
 
-        $this->model->addBook($nombre, $autor, $editorial, $ID_genero, $ID_genero2, $ID_genero3, $stock);
+        $this->model->addBook($nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock);
 
         header('Location: ' . BASE_URL . 'catalogue');
     }
