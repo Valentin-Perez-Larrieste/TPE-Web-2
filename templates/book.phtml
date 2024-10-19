@@ -1,10 +1,64 @@
 <?php require 'templates/layout/header.phtml' ?>
 
+<?php $userModel = new UserModel(); ?>
+
 <h1> <?php echo $book->nombre ?> </h1>
 <ul>
     <li> Autor: <?php echo $book->autor ?> </li>
     <li> Editorial: <?php echo $book->editorial ?> </li>
     <li> Géneros: <?php echo $book->genero ?> </li>
 </ul>
+<?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
+    <form method="post" action="<?php echo BASE_URL . 'edit/' . $book -> id ?>">
+    <div class="form-grup">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <div class="form-grup">
+        <label for="autor">Autor</label>
+        <input type="text" class="form-control" id="autor" name="autor" required>
+    </div>
+    <div class="form-grup">
+        <label for="editorial">Editorial</label>
+        <input type="text" class="form-control" id="editorial" name="editorial" required>
+    </div>
+    <div class="form-grup">
+        <label for="genero">Generos</label>
+        <input type="text" class="form-control" id="genero" name="genero" required>
+    </div>
+    <div class="form-grup">
+        <label for="ID_genero">ID_genero</label>
+        <select class="form-control" id="ID_genero" name="ID_genero" required>
+            <option value="">Selecciona un género</option>
+            <?php foreach ($genres as $genre): ?>
+                <option value="<?= $genre->id ?>"><?= $genre->nombre ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-grup">
+        <label for="ID_genero2">ID_genero2</label>
+        <select class="form-control" id="ID_genero2" name="ID_genero2">
+            <option value="">Selecciona un género</option>
+            <?php foreach ($genres as $genre): ?>
+                <option value="<?= $genre->id ?>"><?= $genre->nombre ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-grup">
+        <label for="ID_genero3">$ID_genero3</label>
+        <select class="form-control" id="ID_genero3" name="ID_genero3">
+            <option value="">Selecciona un género</option>
+            <?php foreach ($genres as $genre): ?>
+                <option value="<?= $genre->id ?>"><?= $genre->nombre ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-grup">
+        <label for="stock">Stock</label>
+        <input type="number" class="form-control" id="stock" name="stock" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+</form>
+<?php endif ?>    
 
 <?php require 'templates/layout/footer.phtml' ?>

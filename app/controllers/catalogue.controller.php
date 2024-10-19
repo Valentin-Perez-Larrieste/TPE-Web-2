@@ -23,12 +23,13 @@ class CatalogueController {
         }
     }
 
-    public function showBook($id) {
+    public function showBook($id, $genres= null) {
         session_start();
 
         $book = $this->model->getBook($id);
+        $genres =$this->model->getGenres();
 
-        return $this->view->showBook($book);
+        return $this->view->showBook($book, $genres);
     }
     public function showBookByGenres($ID_genero){
         session_start();
@@ -63,5 +64,21 @@ class CatalogueController {
         $this->model->addBook($nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock);
 
         header('Location: ' . BASE_URL . 'catalogue');
+    }
+    public function editBook($id){ 
+        $book = $this->model->getBook($id); 
+
+        $nombre = $_POST['nombre'];
+        $autor = $_POST['autor'];
+        $editorial = $_POST['editorial'];
+        $genero = $_POST['genero'];
+        $ID_genero = $_POST['ID_genero'];
+        $ID_genero2 = !empty($_POST['ID_genero2']) ? $_POST['ID_genero2'] : null;
+        $ID_genero3 = !empty($_POST['ID_genero3']) ? $_POST['ID_genero3'] : null;
+        $stock = $_POST['stock'];
+
+        $this->model->editBook($id, $nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock);
+
+        header('Location: ' . BASE_URL . 'book/' . $book -> id);
     }
 }

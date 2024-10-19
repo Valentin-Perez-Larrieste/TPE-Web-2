@@ -49,4 +49,8 @@ class CatalogueModel {
         $query = $this->db->prepare('INSERT INTO libro (nombre, autor, editorial, genero, ID_genero, ID_genero2, ID_genero3, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
         $query->execute([$nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock]);
     }
+    public function editBook($id, $nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
+        $query = $this->db->prepare('UPDATE libro SET nombre = ?, autor = ?, editorial = ?, genero = ?, ID_genero = ?, ID_genero2 = ?, ID_genero3 = ?, stock = ?  WHERE id = ?');
+        $query->execute([$nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock,$id]);
+    }
 }

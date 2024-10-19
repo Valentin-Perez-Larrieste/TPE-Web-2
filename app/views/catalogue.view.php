@@ -7,7 +7,7 @@ class CatalogueView {
         require 'templates/catalogue.phtml';
     }
 
-    public function showBook($book) {
+    public function showBook($book, $genres) {
         require 'templates/book.phtml';
     }
 
