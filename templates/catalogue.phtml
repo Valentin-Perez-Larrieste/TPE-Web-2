@@ -6,23 +6,33 @@
 <h2>Listado de Libros</h2>
 <ul>
     <?php foreach($catalogue as $book): ?>
-        <li> <a href="book/<?php echo $book->id ?>"> <?php echo $book->nombre ?> </a> </li>
+        <li> <h4> <a href="book/<?php echo $book->id ?>" class="link-body-emphasis"> <?php echo $book->nombre ?> </a> </h4> </li>
         <?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
-            <a href="delete/<?php echo $book->id ?>" class="btn btn-outline-danger">Eliminar</a>
+
+            <a href="deleteBook/<?php echo $book->id ?>" class="btn btn-outline-danger">Eliminar</a>
 
         <?php endif ?>
     <?php endforeach ?>
 </ul>
     
 <?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
-    <button> <a href="showAddBook/">Agregar</a> </button>
+    <a href="showAddBook/" class="btn btn-primary">Agregar</a>
 <?php endif ?>
 
 <h2>Listado de Géneros</h2>
 <ul>
     <?php foreach($genres as $genre): ?>
-        <li> <a href="genre/<?php echo $genre->id ?>"> <?php echo $genre->nombre ?> </a> </li>
+        <li> <h4> <a href="genre/<?php echo $genre->id ?>" class="link-body-emphasis"> <?php echo $genre->nombre ?> </a> </h4> </li>
+        <?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
+
+            <a href="deleteGenre/<?php echo $genre->id ?>" class="btn btn-outline-danger">Eliminar</a>
+
+        <?php endif ?>
     <?php endforeach ?>
 </ul>
+
+<?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
+    <a href="showAddGenre/" class="btn btn-primary">Agregar</a>
+<?php endif ?>
 
 <?php require 'templates/layout/footer.phtml' ?>

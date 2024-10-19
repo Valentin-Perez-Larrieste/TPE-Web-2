@@ -1,0 +1,14 @@
+<?php require 'templates/layout/header.phtml' ?>
+
+
+<form method="post" action="<?php echo BASE_URL . 'addGenre' ?>">
+    <div class="form-grup">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <button type="submit" class="btn btn-success">Añadir</button>
+</form>
+
+
+
+<?php require 'templates/layout/footer.phtml' ?>

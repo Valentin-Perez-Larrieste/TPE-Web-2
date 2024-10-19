@@ -40,10 +40,17 @@ class CatalogueModel {
         
         return $books;
     }
+    public function getGenre($id) {
+        $query = $this->db->prepare('SELECT * FROM géneros WHERE id = ?');
+        $query->execute([$id]);
+
+        $genre = $query->fetch(PDO::FETCH_OBJ);
+        
+        return $genre;
+    }
     public function deleteBook($id) {
         $query = $this->db->prepare('DELETE FROM libro WHERE id = ?');
         $query->execute([$id]);
-        
     }
     public function addBook($nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
         $query = $this->db->prepare('INSERT INTO libro (nombre, autor, editorial, genero, ID_genero, ID_genero2, ID_genero3, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
@@ -52,5 +59,18 @@ class CatalogueModel {
     public function editBook($id, $nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
         $query = $this->db->prepare('UPDATE libro SET nombre = ?, autor = ?, editorial = ?, genero = ?, ID_genero = ?, ID_genero2 = ?, ID_genero3 = ?, stock = ?  WHERE id = ?');
         $query->execute([$nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock,$id]);
+    }
+
+    public function deleteGenre($id) {
+        $query = $this->db->prepare('DELETE FROM géneros WHERE id = ?');
+        $query->execute([$id]);
+    }
+    public function addGenre($nombre) {
+        $query = $this->db->prepare('INSERT INTO géneros (nombre) VALUES (?)');
+        $query->execute([$nombre]);
+    }
+    public function editGenre($id, $nombre) {
+        $query = $this->db->prepare('UPDATE géneros SET nombre = ? WHERE id = ?');
+        $query->execute([$nombre, $id]);
     }
 }

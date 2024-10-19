@@ -23,11 +23,10 @@ class CatalogueController {
         }
     }
 
-    public function showBook($id, $genres= null) {
+    public function showBook($id, $genres = null) {
         session_start();
 
         $book = $this->model->getBook($id);
-        $genres =$this->model->getGenres();
 
         return $this->view->showBook($book, $genres);
     }
@@ -35,8 +34,9 @@ class CatalogueController {
         session_start();
 
         $books = $this->model->getBookByGenres($ID_genero);
+        $genre = $this->model->getGenre($ID_genero);
 
-        return $this->view->showBooks($books);
+        return $this->view->showBooks($books, $genre);
 
     }
     public function deleteBook($id) {
@@ -80,5 +80,33 @@ class CatalogueController {
         $this->model->editBook($id, $nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock);
 
         header('Location: ' . BASE_URL . 'book/' . $book -> id);
+    }
+
+    public function deleteGenre($id) {
+
+        $this->model->deleteGenre($id);
+
+        header ('location: '. BASE_URL . 'catalogue');
+    }
+    public function showAddGenre() {
+        session_start();
+
+        return $this->view->showAddGenre();
+    }
+    public function addGenre() {
+        $nombre = $_POST['nombre'];
+
+        $this->model->addGenre($nombre);
+
+        header('Location: ' . BASE_URL . 'catalogue');
+    }
+    public function editGenre($id){
+        $genre = $this->model->getGenre($id);
+
+        $nombre = $_POST['nombre'];
+
+        $this->model->editGenre($id, $nombre);
+
+        header('Location: ' . BASE_URL . 'catalogue');
     }
 }

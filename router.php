@@ -6,7 +6,7 @@ require_once 'app/controllers/register.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$action = 'home'; // accion por defecto si no se envia ninguna
+$action = 'home';
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -23,6 +23,14 @@ logout -> AuthController->logout();
 catalogue -> CatalogueController()->showCatalogue();
 book/ :ID -> CatalogueController()->showBook($id);
 genre/ :ID -> CatalogueController()->showBookByGenre($id);
+deleteBook/ :ID -> CatalogueController()->deleteBook($id);
+showAddBook -> CatalogueController()->showAddBook;
+addBook -> CatalogueController()->addBook();
+editBook/ :ID -> CatalogueController()->editBook($id);
+deleteGenre/ :ID -> CatalogueController()->deleteGenre($id);
+showAddGenre -> CatalogueController()->showAddGenre();
+addGenre -> CatalogueController()->addGenre();
+editGenre/ :ID -> CatalogueController()->editGenre($id);
 */
 
 $params = explode('/', $action);
@@ -62,7 +70,7 @@ switch($params[0]) {
         $controller = new CatalogueController();
         $controller->showBookByGenres($params[1]);
         break;
-    case 'delete':
+    case 'deleteBook':
         $controller = new CatalogueController();
         $controller->deleteBook($params[1]);
         break;
@@ -70,14 +78,30 @@ switch($params[0]) {
         $controller = new CatalogueController();
         $controller->showAddBook();
         break;
-    case 'add':
+    case 'addBook':
         $controller = new CatalogueController();
         $controller->addBook();
         break;
-    case 'edit':
+    case 'editBook':
         $controller = new CatalogueController();
         $controller->editBook($params[1]);
-        break;        
+        break;
+    case 'deleteGenre':
+        $controller = new CatalogueController();
+        $controller->deleteGenre($params[1]);
+        break;
+    case 'showAddGenre':
+        $controller = new CatalogueController();
+        $controller->showAddGenre();
+        break;
+    case 'addGenre':
+        $controller = new CatalogueController();
+        $controller->addGenre();
+        break;
+    case 'editGenre':
+        $controller = new CatalogueController();
+        $controller->editGenre($params[1]);
+        break;
     default:
         echo "404 Page not found";
         break;

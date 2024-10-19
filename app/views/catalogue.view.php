@@ -11,7 +11,7 @@ class CatalogueView {
         require 'templates/book.phtml';
     }
 
-    public function showBooks($books) {
+    public function showBooks($books, $genre) {
         require 'templates/books.phtml';
     }
 
@@ -19,4 +19,7 @@ class CatalogueView {
         require 'templates/formAddBook.phtml';
     }
 
+    public function showAddGenre() {
+        require 'templates/formAddGenre.phtml';
+    }
 }

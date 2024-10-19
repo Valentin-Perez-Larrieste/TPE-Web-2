@@ -9,7 +9,7 @@
     <li> Géneros: <?php echo $book->genero ?> </li>
 </ul>
 <?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
-    <form method="post" action="<?php echo BASE_URL . 'edit/' . $book -> id ?>">
+    <form method="post" action="<?php echo BASE_URL . 'editBook/' . $book -> id ?>">
     <div class="form-grup">
         <label for="nombre">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -20,7 +20,7 @@
     </div>
     <div class="form-grup">
         <label for="editorial">Editorial</label>
-        <input type="text" class="form-control" id="editorial" name="editorial" required>
+        <input type="text" class="form-control" id="editorial" name="editorial">
     </div>
     <div class="form-grup">
         <label for="genero">Generos</label>
