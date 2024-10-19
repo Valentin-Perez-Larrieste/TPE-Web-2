@@ -70,6 +70,10 @@ switch($params[0]) {
         $controller = new CatalogueController();
         $controller->showAddBook();
         break;
+    case 'add':
+        $controller = new CatalogueController();
+        $controller->addBook();
+        break;
     default:
         echo "404 Page not found";
         break;

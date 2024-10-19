@@ -47,6 +47,20 @@ class CatalogueController {
     public function showAddBook() {
         session_start();
         
-        return $this->view->showAddBook();
+        $genres = $this->model->getGenres();
+        return $this->view->showAddBook($genres);
+    }
+    public function addBook() {
+        $nombre = $_POST['nombre'];
+        $autor = $_POST['autor'];
+        $editorial = $_POST['editorial'] ?? null;
+        $ID_genero = $_POST['ID_genero'];
+        $ID_genero2 = !empty($_POST['ID_genero2']) ? $_POST['ID_genero2'] : null;
+        $ID_genero3 = !empty($_POST['ID_genero3']) ? $_POST['ID_genero3'] : null;
+        $stock = $_POST['stock'];
+
+        $this->model->addBook($nombre, $autor, $editorial, $ID_genero, $ID_genero2, $ID_genero3, $stock);
+
+        header('Location: ' . BASE_URL . 'catalogue');
     }
 }

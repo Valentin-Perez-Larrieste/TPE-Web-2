@@ -1,7 +1,7 @@
 <?php require 'templates/layout/header.phtml' ?>
 
 
-<form method="post" action="add">
+<form method="post" action="<?php echo BASE_URL . 'add' ?>">
     <div class="form-grup">
         <label for="nombre">Nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -15,11 +15,38 @@
         <input type="text" class="form-control" id="editorial" name="editorial" required>
     </div>
     <div class="form-grup">
-        <label for="genero">Genero</label>
+        <label for="genero">Generos</label>
         <input type="text" class="form-control" id="genero" name="genero" required>
-    </div>    
+    </div>
     <div class="form-grup">
-        <label for="stock">stock</label>
+        <label for="ID_genero">ID_genero</label>
+        <select class="form-control" id="ID_genero" name="ID_genero" required>
+            <option value="">Selecciona un género</option>
+            <?php foreach ($genres as $genre): ?>
+                <option value="<?= $genre->id ?>"><?= $genre->nombre ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-grup">
+        <label for="ID_genero2">ID_genero2</label>
+        <select class="form-control" id="ID_genero2" name="ID_genero2">
+            <option value="">Selecciona un género</option>
+            <?php foreach ($genres as $genre): ?>
+                <option value="<?= $genre->id ?>"><?= $genre->nombre ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-grup">
+        <label for="ID_genero3">ID_genero</label>
+        <select class="form-control" id="ID_genero3" name="ID_genero3">
+            <option value="">Selecciona un género</option>
+            <?php foreach ($genres as $genre): ?>
+                <option value="<?= $genre->id ?>"><?= $genre->nombre ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="form-grup">
+        <label for="stock">Stock</label>
         <input type="number" class="form-control" id="stock" name="stock" required>
     </div>
     <button type="submit" class="btn btn-primary">Añadir</button>
