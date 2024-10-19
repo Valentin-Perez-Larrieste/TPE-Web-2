@@ -15,5 +15,8 @@ class CatalogueView {
         require 'templates/books.phtml';
     }
 
+    public function showAddBook() {
+        require 'templates/formAddBook.phtml';
+    }
 
 }

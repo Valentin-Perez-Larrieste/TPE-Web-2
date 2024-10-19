@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2024 a las 17:25:34
+-- Tiempo de generación: 19-10-2024 a las 18:22:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -82,7 +82,6 @@ INSERT INTO `libro` (`id`, `nombre`, `autor`, `editorial`, `genero`, `ID_genero`
 (3, 'La cartuja de Parma', 'Stendhal', NULL, 'Ficcion', 6, NULL, NULL, 5),
 (4, 'Drácula', 'Bram Stoker', 'Editorial Anto', 'Terror, Novela', 18, 11, NULL, 5),
 (5, 'Cementerio de animales', 'Stephen King', 'Alfaguara', 'Terror', 18, NULL, NULL, 3),
-(6, 'Soy leyenda', 'Richard Matheson', 'Minotauro', 'Ciencia ficcion,Terror', 4, 18, NULL, 2),
 (7, 'El misterio de Salems Lot', 'Stephen King', 'DEBOLS!LLO', 'Novela, Terror', 11, 18, NULL, 1),
 (8, 'La conjura de los necios', 'John Kennedy Toole', 'Editorial Anagrama', ' Novela, Humor, Comedia', 11, 9, 5, 0),
 (9, '50 sombras de Luisi', 'Ángel Sanchidrián', 'Minotauro', 'Humor,Comedia', 9, 5, NULL, 3),
@@ -95,7 +94,6 @@ INSERT INTO `libro` (`id`, `nombre`, `autor`, `editorial`, `genero`, `ID_genero`
 (16, 'Dune', 'Frank Herbert', 'LA FACTORÍA DE IDEAS', 'Novela, Ciencia ficcion', 11, 4, NULL, 3),
 (17, 'Fahrenheit 451', 'Ray Bradbury', 'Minotauro', 'Novela, Ciencia ficcion', 11, 4, NULL, 2),
 (18, 'El marciano', 'Andy Weir', 'B de Books (Ediciones B)', ' Ciencia ficcion, Novela', 4, 11, NULL, 1),
-(19, 'Un mundo feliz', 'Aldous Huxley', NULL, 'Novela, Ciencia ficcion', 11, 4, NULL, 2),
 (20, 'El eternauta', 'H.G.Oesterheld, Solano López', 'Planeta Cómic Argentina', 'Historieta, Novela grafica', 8, 12, NULL, 5),
 (21, 'Asesinato en el Orient Express', 'Agatha Christie', 'Grupo Planeta - Argentina', 'Novela, Ficcion detectivesca, Misterio', 11, 7, 10, 2),
 (23, 'Holly (Edición en español)', 'Stephen King', 'PLAZA & JANÉS', 'Terror, Misterio, Suspenso', 18, 10, 17, 2),

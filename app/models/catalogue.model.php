@@ -40,5 +40,11 @@ class CatalogueModel {
         
         return $books;
     }
+    public function deleteBook($id) {
+        $query = $this->db->prepare('DELETE FROM libro WHERE id = ?');
+        $query->execute([$id]);
+        
+    }
+
 
 }

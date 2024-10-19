@@ -38,4 +38,15 @@ class CatalogueController {
         return $this->view->showBooks($books);
 
     }
+    public function deleteBook($id) {
+
+        $this->model->deleteBook($id);
+
+        header ('location: '. BASE_URL . 'catalogue');
+    }
+    public function showAddBook() {
+        session_start();
+        
+        return $this->view->showAddBook();
+    }
 }

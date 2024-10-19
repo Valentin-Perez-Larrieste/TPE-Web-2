@@ -8,10 +8,16 @@
     <?php foreach($catalogue as $book): ?>
         <li> <a href="book/<?php echo $book->id ?>"> <?php echo $book->nombre ?> </a> </li>
         <?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
-            <button> a </button>
+            <a href="delete/<?php echo $book->id ?>" class="btn btn-outline-danger">Eliminar</a>
+
         <?php endif ?>
     <?php endforeach ?>
 </ul>
+    
+<?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
+    <button> <a href="showAddBook/">Agregar</a> </button>
+    <button> Editar </button>
+<?php endif ?>
 
 <h2>Listado de Géneros</h2>
 <ul>
