@@ -7,7 +7,7 @@
 ## Descripcion
 
 Hicimos un sistema para controlar el stock de los libros y clientes de una libreria.
-- Hay una breve descrpción de la misma en el Home.
+- Hay una breve descripción de la misma en el Home.
 - En Catalogo se encuentran el listado de libros y géneros, con la posibilidad de visualizar más detalles sobre los mismos.
 - Un usuario se puede loguear en Login.
 - Una persona se puede registrar en Register.
