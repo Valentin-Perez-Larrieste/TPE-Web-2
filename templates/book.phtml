@@ -6,7 +6,7 @@
 <ul>
     <li> Autor: <?php echo $book->autor ?> </li>
     <li> Editorial: <?php echo $book->editorial ?> </li>
-    <li> Géneros: <?php echo $book->genero ?> </li>
+    <li> Géneros: <?php foreach($bookGenres as $genre ): echo $genre->nombre . ' - '; endforeach ?> </li>
 </ul>
 <?php if(isset($_SESSION['ID_USER']) && $userModel->isAdmin($_SESSION['ID_USER'])): ?>
     <form method="post" action="<?php echo BASE_URL . 'editBook/' . $book -> id ?>">
@@ -21,10 +21,6 @@
     <div class="form-grup">
         <label for="editorial">Editorial</label>
         <input type="text" class="form-control" id="editorial" name="editorial">
-    </div>
-    <div class="form-grup">
-        <label for="genero">Generos</label>
-        <input type="text" class="form-control" id="genero" name="genero" required>
     </div>
     <div class="form-grup">
         <label for="ID_genero">ID_genero</label>

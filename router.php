@@ -1,10 +1,15 @@
 <?php
 require_once 'index.php';
+require_once 'libs/response.php';
+require_once 'app/middlewares/session.auth.middleware.php';
+require_once 'app/middlewares/verify.auth.middleware.php';
 require_once 'app/controllers/catalogue.controller.php';
 require_once 'app/controllers/auth.controller.php';
 require_once 'app/controllers/register.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+
+$res = new Response();
 
 $action = 'home';
 if (!empty( $_GET['action'])) {
@@ -37,6 +42,7 @@ $params = explode('/', $action);
 
 switch($params[0]) {
     case 'home':
+        sessionAuthMiddleware($res);
         showHome();
         break;
     case 'showLogin':
@@ -59,46 +65,65 @@ switch($params[0]) {
         $controller = new AuthController();
         $controller->logout();
     case 'catalogue':
+        sessionAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->showCatalogue();
         break;
     case 'book':
+        sessionAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->showBook($params[1]);
         break;
     case 'genre':
+        sessionAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->showBookByGenres($params[1]);
         break;
     case 'deleteBook':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->deleteBook($params[1]);
         break;
     case 'showAddBook':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->showAddBook();
         break;
     case 'addBook':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->addBook();
         break;
     case 'editBook':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->editBook($params[1]);
         break;
     case 'deleteGenre':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->deleteGenre($params[1]);
         break;
     case 'showAddGenre':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->showAddGenre();
         break;
     case 'addGenre':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->addGenre();
         break;
     case 'editGenre':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
         $controller = new CatalogueController();
         $controller->editGenre($params[1]);
         break;

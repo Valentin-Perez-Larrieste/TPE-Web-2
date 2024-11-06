@@ -1,7 +1,5 @@
 <?php
 function showHome() {
-    session_start();
-
     require 'templates/layout/header.phtml';
     
 

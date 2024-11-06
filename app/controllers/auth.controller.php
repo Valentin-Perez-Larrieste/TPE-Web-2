@@ -26,6 +26,7 @@ class AuthController {
             $_SESSION['ID_USER'] = $userFromDB->id;
             $_SESSION['EMAIL_USER'] = $userFromDB->email;
             $_SESSION['LAST_ACTIVITY'] = time();
+            $_SESSION['IS_ADMIN'] = $userFromDB->admin;
 
             header ('location: '. BASE_URL);
             exit();

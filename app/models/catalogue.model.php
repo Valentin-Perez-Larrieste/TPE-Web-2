@@ -50,17 +50,26 @@ class CatalogueModel {
         
         return $genre;
     }
+
+    public function getGenresById($ID_genero, $ID_genero2, $ID_genero3) {
+        $query = $this->db->prepare('SELECT * FROM géneros WHERE id = ? OR id = ? OR id = ?');
+        $query->execute([$ID_genero, $ID_genero2, $ID_genero3]);
+
+        $bookGenres = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $bookGenres;
+    }
     public function deleteBook($id) {
         $query = $this->db->prepare('DELETE FROM libro WHERE id = ?');
         $query->execute([$id]);
     }
-    public function addBook($nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
-        $query = $this->db->prepare('INSERT INTO libro (nombre, autor, editorial, genero, ID_genero, ID_genero2, ID_genero3, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-        $query->execute([$nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock]);
+    public function addBook($nombre, $autor, $editorial, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
+        $query = $this->db->prepare('INSERT INTO libro (nombre, autor, editorial, ID_genero, ID_genero2, ID_genero3, stock) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $query->execute([$nombre, $autor, $editorial, $ID_genero, $ID_genero2, $ID_genero3, $stock]);
     }
-    public function editBook($id, $nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
-        $query = $this->db->prepare('UPDATE libro SET nombre = ?, autor = ?, editorial = ?, genero = ?, ID_genero = ?, ID_genero2 = ?, ID_genero3 = ?, stock = ?  WHERE id = ?');
-        $query->execute([$nombre, $autor, $editorial, $genero, $ID_genero, $ID_genero2, $ID_genero3, $stock,$id]);
+    public function editBook($id, $nombre, $autor, $editorial, $ID_genero, $ID_genero2, $ID_genero3, $stock) {
+        $query = $this->db->prepare('UPDATE libro SET nombre = ?, autor = ?, editorial = ?, ID_genero = ?, ID_genero2 = ?, ID_genero3 = ?, stock = ?  WHERE id = ?');
+        $query->execute([$nombre, $autor, $editorial, $ID_genero, $ID_genero2, $ID_genero3, $stock,$id]);
     }
 
     public function deleteGenre($id) {
