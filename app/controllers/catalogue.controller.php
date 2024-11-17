@@ -48,6 +48,10 @@ class CatalogueController {
         return $this->view->showAddBook($genres);
     }
     public function addBook() {
+        if(trim($_POST['nombre']) === '' || trim($_POST['autor']) === '' || trim($_POST['ID_genero']) === '' || trim($_POST['stock']) === '') {
+            return $this->view->showError('Debe rellenar los campos necesarios');
+        }
+
         $nombre = $_POST['nombre'];
         $autor = $_POST['autor'];
         $editorial = $_POST['editorial'] ?? null;
@@ -63,6 +67,10 @@ class CatalogueController {
     public function editBook($id){ 
         $book = $this->model->getBook($id); 
 
+        if(trim($_POST['nombre']) === '' || trim($_POST['autor']) === '' || trim($_POST['ID_genero']) === '' || trim($_POST['stock']) === '') {
+            return $this->view->showError('Debe rellenar los campos necesarios');
+        }
+
         $nombre = $_POST['nombre'];
         $autor = $_POST['autor'];
         $editorial = $_POST['editorial'];
@@ -77,6 +85,11 @@ class CatalogueController {
     }
 
     public function deleteGenre($id) {
+        $books = $this->model->getBookByGenres($id);
+
+        if (count($books) > 0) {
+            return $this->view->showError('No se puede eliminar el género porque está asociado a uno o más libros');
+        }
 
         $this->model->deleteGenre($id);
 
@@ -86,6 +99,9 @@ class CatalogueController {
         return $this->view->showAddGenre();
     }
     public function addGenre() {
+        if(isset($_POST['nombre']) && trim($_POST['nombre']) === '') {
+            return $this->view->showAddGenre('Debe rellenar el campo');
+        }
         $nombre = $_POST['nombre'];
 
         $this->model->addGenre($nombre);
@@ -95,6 +111,9 @@ class CatalogueController {
     public function editGenre($id){
         $genre = $this->model->getGenre($id);
 
+        if(trim($_POST['nombre']) === '') {
+            return $this->view->showError('Debe rellenar los campos necesarios');
+        }
         $nombre = $_POST['nombre'];
 
         $this->model->editGenre($id, $nombre);
